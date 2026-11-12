@@ -5,12 +5,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jelajahi tiga properti pilihan bersama NusaProperti.">
+  <meta name="description" content="Jelajahi koleksi properti pilihan bersama NusaProperti.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"
     />
-  <title>Latihan Properti — NusaProperti</title>
+  <title>Temukan Properti — NusaProperti</title>
   <style>
     :root {
       color-scheme: light;
@@ -52,18 +53,16 @@
     .page {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 22px 0 64px;
+      padding: 22px 24px 64px;
     }
-
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 4px 20px;
-      border-bottom: 1px solid var(--border);
+      gap: 24px;
+      padding: 0 4px 18px;
     }
-
 
     .brand {
       display: inline-flex;
@@ -75,7 +74,6 @@
       letter-spacing: -0.03em;
     }
 
-
     .brand-icon {
       display: grid;
       width: 38px;
@@ -85,12 +83,28 @@
       background: rgba(25, 70, 104, 0.08);
     }
 
-
     .brand-icon svg {
       width: 22px;
       height: 22px;
     }
 
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .main-nav a {
+      transition: color 180ms ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--primary);
+    }
 
     .contact-link {
       padding: 10px 18px;
@@ -108,10 +122,64 @@
       background: var(--primary-dark);
     }
 
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 430px;
+      align-items: center;
+      overflow: hidden;
+      padding: 64px clamp(28px, 7vw, 88px);
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(5, 25, 40, 0.9), rgba(5, 25, 40, 0.25)),
+        url("assets/hero-villa.jpg") center 52% / cover no-repeat;
+      color: var(--white);
+    }
+
+    .hero-content {
+      max-width: 630px;
+    }
+
+    .hero .eyebrow {
+      color: #efbd87;
+    }
+
+    .hero h1 {
+      margin-bottom: 18px;
+      color: var(--white);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 510px;
+      margin: 0 0 26px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: #efbd87;
+      color: #183746;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .hero-link:hover {
+      transform: translateY(-2px);
+      background: #f5cc9f;
+    }
 
     .intro {
       max-width: 680px;
-      margin: 62px auto 42px;
+      margin: 76px auto 38px;
       text-align: center;
     }
 
@@ -145,13 +213,6 @@
       line-height: 1.7;
     }
 
-
-    /* .property-grid {
-      display: flex;
-      gap: 24px;
-    } */
-
-
     .property-card {
       overflow: hidden;
       border: 1px solid rgba(25, 70, 104, 0.06);
@@ -161,7 +222,6 @@
       transition: transform 220ms ease, box-shadow 220ms ease;
     }
 
-
     @media (hover: hover) and (pointer: fine) {
       .property-card:hover {
         transform: translateY(-5px);
@@ -169,23 +229,22 @@
       }
     }
 
-
     .card-image-wrap {
+      position: relative;
       padding: 10px 10px 0;
     }
-
 
     .card-image {
       display: block;
       width: 100%;
-      height: 220px;
+      height: 230px;
       border-radius: 12px;
       background: var(--background);
-      object-fit: contain;
+      object-fit: cover;
     }
 
-
     .badge {
+      position: absolute;
       top: 20px;
       left: 20px;
       padding: 5px 11px;
@@ -198,18 +257,15 @@
       letter-spacing: 0.04em;
     }
 
-
     .card-content {
       padding: 18px 20px 22px;
     }
-
 
     .location {
       margin: 0 0 7px;
       color: var(--muted);
       font-size: 0.78rem;
     }
-
 
     .property-name {
       margin: 0 0 12px;
@@ -219,16 +275,15 @@
       letter-spacing: -0.025em;
     }
 
-
     .specs {
       display: flex;
+      flex-wrap: wrap;
       gap: 16px;
       padding-bottom: 15px;
       border-bottom: 1px solid var(--border);
       color: var(--muted);
       font-size: 0.82rem;
     }
-
 
     .price-row {
       display: flex;
@@ -238,12 +293,10 @@
       padding-top: 15px;
     }
 
-
     .price-label {
       color: var(--muted);
       font-size: 0.75rem;
     }
-
 
     .price {
       color: var(--primary);
@@ -252,7 +305,6 @@
       letter-spacing: -0.025em;
     }
 
-
     .page-note {
       margin: 34px 0 0;
       color: var(--muted);
@@ -260,67 +312,131 @@
       text-align: center;
     }
 
-.property-carousel {
-    display: grid;
-    grid-template-columns: 40px minmax(0, 1fr) 40px;
-    align-items: center;
-    gap: 8px;
-}
+    .property-carousel {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) 42px;
+      align-items: center;
+      gap: 8px;
+    }
 
-.swiper {
-    grid-column: 2;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px 4px 44px;
-    touch-action: pan-y;
-}
+    .swiper {
+      grid-column: 2;
+      width: 100%;
+      margin: 0 auto;
+      padding: 8px 4px 44px;
+      touch-action: pan-y;
+    }
 
-.swiper-slide {
-    display: flex;
-    height: auto;
-    align-items: stretch;
-}
+    .swiper-slide {
+      display: flex;
+      height: auto;
+      align-items: stretch;
+    }
 
-.property-card {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-}
+    .property-card {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
 
-.card-content {
-    flex: 1;
-}
+    .card-content {
+      flex: 1;
+    }
 
-.swiper-button-next,
-.swiper-button-prev {
-    width: 40px;
-    height: 40px;
-    position: static;
-    margin-top: 0;
-    transform: translateY(-18px);
-    border-radius: 50%;
-    background: var(--white);
-    color: var(--primary);
-    box-shadow: 0 4px 14px rgba(25, 70, 104, 0.18);
-}
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: static;
+      width: 42px;
+      height: 42px;
+      margin: 0;
+      transform: translateY(-18px);
+      background: transparent;
+      color: var(--primary);
+      transition: color 180ms ease, transform 180ms ease;
+    }
 
-.swiper-button-next {
-    grid-column: 3;
-    grid-row: 1;
-}
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      transform: translateY(-18px) scale(1.12);
+      color: var(--accent);
+    }
 
-.swiper-button-prev {
-    grid-column: 1;
-    grid-row: 1;
-}
+    .swiper-button-next {
+      grid-column: 3;
+      grid-row: 1;
+    }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 15px;
-    font-weight: 750;
-}
+    .swiper-button-prev {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--primary);
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 16px 16px 48px;
+      }
+
+      .topbar {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 4px;
+        font-size: 0.82rem;
+      }
+
+      .contact-link {
+        padding: 9px 14px;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        min-height: 390px;
+        padding: 42px 26px;
+        border-radius: 18px;
+      }
+
+      .intro {
+        margin: 58px auto 30px;
+      }
+
+      .property-carousel {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+        gap: 4px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 30px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .main-nav {
+        font-size: 0.74rem;
+      }
+
+      .hero {
+        min-height: 360px;
+        padding: 34px 20px;
+      }
+    }
   </style>
 </head>
 
@@ -339,24 +455,39 @@
         </span>
         NusaProperti
       </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="#properties">Properti</a>
+        <a href="index.html">Tentang Kami</a>
+      </nav>
       <a class="contact-link" href="index.html#contacts">Hubungi Kami</a>
     </header>
 
 
     <main>
-      <section class="intro" aria-labelledby="page-title">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="eyebrow">NusaProperti</span>
+          <h1 id="hero-title">Temukan properti yang sesuai dengan impian Anda</h1>
+          <p>
+            Jelajahi pilihan hunian dan vila di lokasi strategis, dengan pendampingan yang membantu Anda mengambil
+            keputusan dengan lebih yakin.
+          </p>
+          <a class="hero-link" href="#properties">Jelajahi Properti</a>
+        </div>
+      </section>
+
+      <section class="intro" id="properties" aria-labelledby="page-title">
         <span class="eyebrow">Koleksi Properti</span>
-        <h1 id="page-title">Temukan hunian yang terasa seperti rumah</h1>
+        <h1 id="page-title">Pilihan hunian untuk setiap rencana</h1>
         <p>
-          Pilihan rumah dan vila di lokasi strategis, dikurasi untuk membantu Anda menemukan tempat yang sesuai dengan
-          kebutuhan dan gaya hidup.
+          Temukan rumah dan vila pilihan yang dikurasi untuk menemani kebutuhan dan gaya hidup Anda.
         </p>
       </section>
 
       <div class="property-carousel">
       <div class="swiper mySwiper">
-      <!-- <section class="property-grid" aria-label="Tiga properti pilihan"> -->
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" id="property-slides">
 
             <div class="swiper-slide">
         <article class="property-card">
@@ -562,7 +693,6 @@
     <div class="swiper-button-prev" aria-label="Properti sebelumnya"></div>
     <div class="swiper-button-next" aria-label="Properti berikutnya"></div>
       </div>
-      <!-- </section> -->
 
       <p class="page-note">Informasi harga dan ketersediaan dapat berubah. Hubungi tim kami untuk detail terbaru.</p>
     </main>
@@ -577,6 +707,20 @@
         slidesPerView: 3,
         spaceBetween: 20,
         loop: true,
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 14,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 18,
+          },
+          960: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
